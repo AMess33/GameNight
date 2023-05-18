@@ -44,5 +44,24 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
+    addGame: async (parent, { gameNightId, name }, context) => {
+      if (context.user) {
+        return GameNight.findOneAndUpdate(
+          { _id: gameNightId },
+          {
+            $addToSet: {
+              games: { name },
+            },
+          },
+          {
+            new: true,
+            runValidators: true,
+          }
+        );
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    },
   },
 };
+
+module.exports = resolvers;
