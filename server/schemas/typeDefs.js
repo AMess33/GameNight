@@ -41,3 +41,5 @@ const typeDefs = gql`
     removeGame(gameId: ID!): GameNight
   }
 `;
+
+module.exports = typeDefs;
