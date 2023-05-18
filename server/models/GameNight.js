@@ -1,4 +1,14 @@
 const { Schema, model } = require("mongoose");
+// add cell and row schema to use in table type
+// figure out if this is what we want to use or go with nested options in the table on gamenight schema
+const cellSchema = new Schema({
+  content: {
+    type: String,
+    default: "",
+  },
+});
+
+const rowSchema = new Schema([cellSchema]);
 
 const gameNightSchema = new Schema({
   title: {
@@ -17,9 +27,7 @@ const gameNightSchema = new Schema({
       notes: {
         type: String,
       },
-      table: {
-        type: String,
-      },
+      table: [rowSchema],
     },
   ],
 });

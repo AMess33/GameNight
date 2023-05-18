@@ -15,11 +15,15 @@ const typeDefs = gql`
     description: String
     games: [Game]!
   }
-
+  # make sure table and cell are working properly
   type Game {
     name: String
     notes: String
-    table: String
+    table: [[Cell]]!
+  }
+
+  type Cell {
+    content: String
   }
 
   type Auth {
