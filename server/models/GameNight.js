@@ -27,7 +27,9 @@ const gameNightSchema = new Schema({
       notes: {
         type: String,
       },
+
       table: [rowSchema],
+
     },
   ],
 });
