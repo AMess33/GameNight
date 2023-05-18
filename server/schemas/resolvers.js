@@ -34,7 +34,15 @@ const resolvers = {
           title,
           description,
         });
+
+        await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { gameNights: gameNight._id } }
+        );
+
+        return gameNight;
       }
+      throw new AuthenticationError("You need to be logged in!");
     },
   },
 };
