@@ -17,9 +17,20 @@ const gameNightSchema = new Schema({
       notes: {
         type: String,
       },
-      table: {
-        type: String,
-      },
+      table: [
+        [
+          {
+            order: {
+              type: Number,
+              required: true,
+            },
+            content: {
+              type: String,
+              defaultValue: "",
+            },
+          },
+        ],
+      ],
     },
   ],
 });
