@@ -41,7 +41,10 @@ const Signup = () => {
 
   return (
     <div>
-      <form onSubmit={handleFormSubmit}>
+      <form
+        className="bg-white m-4 p-2 border border-dark rounded text-dark"
+        onSubmit={handleFormSubmit}
+      >
         <Stack
           spacing={2}
           direction="column"
@@ -63,7 +66,7 @@ const Signup = () => {
             name="email"
             type="email"
             value={formState.email}
-            label="Enter Your Email"
+            label="Your Email"
             onChange={handleChange}
             variant="outlined"
             size="small"
