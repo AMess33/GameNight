@@ -12,6 +12,7 @@ import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import GameNight from "./pages/GameNight";
 import Profile from "./pages/Profile";
+import Widgets from "./components/Widgets";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
@@ -56,6 +57,7 @@ function App() {
               <Route path="/profiles/:username" element={<Profile />} />
               <Route path="/gamenight/:gamenightId" element={<GameNight />} />
             </Routes>
+            <Widgets />
           </div>
           <Footer />
         </div>
