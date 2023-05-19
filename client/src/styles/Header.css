@@ -20,7 +20,7 @@ header * {
 }
 
 .app-name {
-  font-size: 3rem;
+  font-size: 4rem;
   display: flex;
   justify-content: start;
 }
@@ -35,7 +35,7 @@ header * {
   color: inherit;
   display: flex;
   align-items: end;
-  font-size: 30px;
+  font-size: 32px;
 }
 
 .nav-option:hover {
