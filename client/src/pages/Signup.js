@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { TextField, Button } from "@mui/material";
+import { TextField, Button, Stack } from "@mui/material";
+import Text from "react-bootstrap";
 
 import { useMutation } from "@apollo/client";
 // import { ADD_USER } from "../utils/mutations";
@@ -39,42 +40,57 @@ const Signup = () => {
   };
 
   return (
-    <form onSubmit={handleFormSubmit}>
-      <TextField
-        label="Username"
-        variant="outlined"
-        name="username"
-        type="text"
-        value={formState.name}
-        onChange={handleChange}
-        fullWidth
-        margin="normal"
-      />
-      <TextField
-        name="email"
-        type="email"
-        value={formState.email}
-        label="Enter Your Email"
-        onChange={handleChange}
-        variant="outlined"
-        fullWidth
-        margin="normal"
-      />
-      <TextField
-        label="Password"
-        variant="outlined"
-        name="password"
-        type="password"
-        value={formState.password}
-        onChange={handleChange}
-        fullWidth
-        margin="normal"
-      />
+    <div>
+      <form onSubmit={handleFormSubmit}>
+        <Stack
+          spacing={2}
+          direction="column"
+          justifyContent="center"
+          alignItems="center"
+        >
+          <h2>Create an Account</h2>
+          <TextField
+            label="Username"
+            variant="outlined"
+            name="username"
+            type="text"
+            value={formState.name}
+            onChange={handleChange}
+            size="small"
+            margin="normal"
+          />
+          <TextField
+            name="email"
+            type="email"
+            value={formState.email}
+            label="Enter Your Email"
+            onChange={handleChange}
+            variant="outlined"
+            size="small"
+            margin="normal"
+          />
+          <TextField
+            label="Password"
+            variant="outlined"
+            name="password"
+            type="password"
+            value={formState.password}
+            onChange={handleChange}
+            size="small"
+            margin="normal"
+          />
 
-      <Button type="submit" variant="contained" color="primary">
-        Submit
-      </Button>
-    </form>
+          <Button
+            type="submit"
+            size="small"
+            variant="contained"
+            color="primary"
+          >
+            Submit
+          </Button>
+        </Stack>
+      </form>
+    </div>
   );
 };
 
