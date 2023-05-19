@@ -11,7 +11,7 @@ function Header() {
         <Row>
           <Col sm={12} lg={6}>
             <Link to="/">
-              <h1 className="my-name">GameNights</h1>
+              <h1 className="my-name">GameNight</h1>
             </Link>
           </Col>
           <Col className="nav-col" xs={12} sm={4} lg={2}>
@@ -23,7 +23,9 @@ function Header() {
             </Link>
           </Col>
           <Col className="nav-col" xs={12} sm={4} lg={2}>
-            <Link className="nav-option">Sign Up</Link>
+            <Link className="nav-option" to="/signup">
+              Sign Up
+            </Link>
           </Col>
         </Row>
       </Container>

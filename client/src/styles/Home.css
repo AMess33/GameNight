@@ -1,0 +1,27 @@
+body {
+  background-image: url("../background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+}
+
+.homepage {
+  margin-top: 30px;
+  background-color: rgba(0, 0, 0, 0.318);
+  border-radius: 10px;
+  padding: 0 20px 20px 20px;
+}
+
+.homeSubHeader {
+  font-size: 60px;
+  font-family: "Poppins", sans-serif;
+}
+
+.siteName {
+  font-size: 80px;
+}
+
+.homepage p {
+  font-size: 30px;
+  margin-top: 50px;
+}
