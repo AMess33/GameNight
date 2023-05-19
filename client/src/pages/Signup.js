@@ -43,6 +43,10 @@ const Signup = () => {
       <TextField
         label="Username"
         variant="outlined"
+        name="username"
+        type="text"
+        value={formState.name}
+        onChange={handleChange}
         fullWidth
         margin="normal"
       />
@@ -51,6 +55,7 @@ const Signup = () => {
         type="email"
         value={formState.email}
         label="Enter Your Email"
+        onChange={handleChange}
         variant="outlined"
         fullWidth
         margin="normal"
@@ -58,9 +63,11 @@ const Signup = () => {
       <TextField
         label="Password"
         variant="outlined"
+        name="password"
+        type="password"
+        value={formState.password}
+        onChange={handleChange}
         fullWidth
-        multiline
-        rows={4}
         margin="normal"
       />
 
