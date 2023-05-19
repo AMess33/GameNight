@@ -8,8 +8,15 @@ const Home = (props) => {
       <h2 className="homeSubHeader">
         Welcome to <span className="siteName">GameNight</span>
       </h2>
-      <p>Your one-stop shop for tracking your party's ongoing game nights!</p>
-      <p>Create a game night, fill it with games, track scores, and more!</p>
+      <p className="firstParagraph">
+        Your one-stop shop for tracking your party's ongoing game nights!
+      </p>
+      <p className="lastParagraph">
+        Create a game night, fill it with games, track scores, and more!
+      </p>
+      <Link className="getStartedBtn" to="/login">
+        Get Started
+      </Link>
     </div>
   );
 };
