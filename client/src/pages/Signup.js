@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { TextField, Button } from "@mui/materia";
+import { TextField, Button } from "@mui/material";
 
 import { useMutation } from "@apollo/client";
-import { ADD_USER } from "../utils/mutations";
+// import { ADD_USER } from "../utils/mutations";
 
 import Auth from "../utils/auth";
 
@@ -13,7 +13,7 @@ const Signup = () => {
     email: "",
     password: "",
   });
-  const [addUser, { error, data }] = useMutation(ADD_USER);
+  // const [addUser, { error, data }] = useMutation();
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -27,15 +27,15 @@ const Signup = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
-    try {
-      const { data } = await addUser({
-        variables: { ...formState },
-      });
+    //   try {
+    //     const { data } = await addUser({
+    //       variables: { ...formState },
+    //     });
 
-      Auth.login(data.addUser.token);
-    } catch (e) {
-      console.log(e);
-    }
+    //     Auth.login(data.addUser.token);
+    //   } catch (e) {
+    //     console.log(e);
+    //   }
   };
 
   return (
