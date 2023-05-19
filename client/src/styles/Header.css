@@ -1,13 +1,17 @@
 header {
-  padding: 20px;
+  padding: 5px;
   padding-bottom: 10px;
-  background-color: rgb(21, 148, 14);
-  color: white;
+  background-color: rgba(255, 255, 255, 0.869);
+  color: rgb(0, 0, 0);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+  font-family: "VT323", monospace;
 }
 
-a {
-  text-decoration: none;
+header * {
+  margin: 0;
+}
+
+.homeLink {
   color: inherit;
 }
 
@@ -15,26 +19,25 @@ a {
   max-width: 4000;
 }
 
-.my-name {
-  font-size: 3rem;
+.app-name {
+  font-size: 4rem;
   display: flex;
   justify-content: start;
 }
 
 .nav-col {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 .nav-option {
   text-decoration: none;
   color: inherit;
   display: flex;
-  align-items: center;
-  font-size: 26px;
+  align-items: end;
+  font-size: 32px;
 }
 
 .nav-option:hover {
   color: rgb(47, 86, 212);
-  border-bottom: 2px solid rgb(47, 86, 212);
 }
