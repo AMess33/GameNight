@@ -1,0 +1,33 @@
+header {
+  padding: 20px;
+  padding-bottom: 10px;
+  background-color: rgb(21, 148, 14);
+  color: white;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+}
+
+.container {
+  max-width: 4000;
+}
+
+.my-name {
+  font-size: 3rem;
+  display: flex;
+  justify-content: start;
+}
+
+.nav-col {
+  display: flex;
+  justify-content: center;
+}
+
+.nav-option {
+  display: flex;
+  align-items: center;
+  font-size: 26px;
+}
+
+.nav-option:hover {
+  color: rgb(47, 86, 212);
+  border-bottom: 2px solid rgb(47, 86, 212);
+}
