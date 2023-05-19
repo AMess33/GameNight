@@ -5,8 +5,13 @@ body {
   color: white;
 }
 
+.homepage-container {
+  display: flex;
+  justify-content: center;
+}
+
 .homepage {
-  margin-top: 50px;
+  margin-top: 70px;
   background-color: rgba(0, 0, 0, 0.467);
   border-radius: 10px;
   padding: 0 20px 20px 20px;
@@ -36,7 +41,8 @@ body {
   background-color: white;
   padding: 10px;
   border-radius: 8px;
-  margin-top: 40px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   font-size: 40px;
   font-family: "VT323", monospace;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.6);
