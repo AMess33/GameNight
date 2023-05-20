@@ -3,7 +3,15 @@ const { User, GameNight } = require("../models");
 const { signToken } = require("../utils/auth");
 
 const resolvers = {
-  Query: {},
+  Query: {
+    gameNights: async (parent, { userId }, context) => {
+      if (context.user) {
+        const user = await User.find(
+          { _id: userId }
+        ).populate('gameNights');
+      }
+    }
+  },
   Mutation: {
     addUser: async (parent, { username, email, password }) => {
       const user = await User.create({ username, email, password });

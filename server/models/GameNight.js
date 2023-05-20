@@ -18,6 +18,10 @@ const gameNightSchema = new Schema({
   description: {
     type: String,
   },
+  userId: {
+    type: Schema.Types.ObjectId,
+    ref: 'User'
+  },
   games: [
     {
       name: {
