@@ -41,8 +41,16 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     addGameNight(title: String!, description: String): GameNight
     addGame(gameNightId: ID!, name: String!): GameNight
+    updateGameNight(title: String, description: String): GameNight
+    updateGame(gameNightId: ID!, name: String!): GameNight
     removeGameNight(gameNightId: ID!): GameNight
     removeGame(gameId: ID!): GameNight
+    addNote(gameId: ID!, notes: String!): GameNight
+    updateNote(gameId: ID!, notes: String!): GameNight
+    removeNote(gameId: ID!): GameNight
+    addTable(gameId: ID!, table: [rowSchema]): GameNight
+    updateTable(gameId: ID!, table: [rowSchema]): GameNight
+    removeTable(gameId: ID!): GameNight
   }
 `;
 
