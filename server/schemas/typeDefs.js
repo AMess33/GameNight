@@ -41,16 +41,16 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     addGameNight(title: String!, description: String): GameNight
     addGame(gameNightId: ID!, name: String!): GameNight
-    updateGameNight(title: String, description: String): GameNight
-    updateGame(gameNightId: ID!, gameId: ID!, name: String!): GameNight
-    removeGameNight(gameNightId: ID!): GameNight
-    removeGame(gameNightId: ID!, gameId: ID!): GameNight
-    addNote(gameNightId: ID!, gameId: ID!, notes: String!): GameNight
-    updateNote(gameNightId: ID!, gameId: ID!, notes: String!): GameNight
-    removeNote(gameNightId: ID!, gameId: ID!): GameNight
-    addTable(gameNightId: ID!, gameId: ID!, table: [[Cell]]!): GameNight
-    updateTable(gameNightId: ID!, gameId: ID!, table: [[Cell]]!): GameNight
-    removeTable(gameNightId: ID!, gameId: ID!): GameNight
+    updateGameNight(title: String, title: String, description: String): GameNight
+    updateGame(gameId: ID!, name: String!): GameNight
+    removeGameNight(gameNightId: ID!): User
+    removeGame(gameId: ID!): GameNight
+    addNote(gameId: ID!, notes: String!): GameNight
+    updateNote(gameId: ID!, notes: String!): GameNight
+    removeNote(gameId: ID!): GameNight
+    addTable(gameId: ID!, table: [[Cell]]!): GameNight
+    updateTable(gameId: ID!, table: [[Cell]]!): GameNight
+    removeTable(gameId: ID!): GameNight
   }
 `;
 

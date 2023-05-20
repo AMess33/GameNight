@@ -84,31 +84,62 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
-    updateGameNight: async (parent, { gameNightId, name }, context) => {
+    updateGameNight: async (parent, { gameNightId, title, description }, context) => {
       if (context.user) {
-        // Do stuff
+        const gameNight = await GameNight.findOne(
+          { _id: gameNightId },
+          { $set: { title, description } },
+          { new: true, runValidators: true }
+        );
+
+        if (!gameNight) {
+          throw new Error("No gameNight exists with that id");
+        }
+
+        return gameNight;
       }
       throw new AuthenticationError("You need to be logged in!");
+    },
+    updateGame: async (parent, { gameId, name }, context) => {
+
     },
     removeGameNight: async (parent, { gameNightId }, context) => {
       if (context.user) {
-        // Do stuff
+        const gameNightToDelete = await GameNight.findOneAndDelete({ _id: gameNightId });
+
+        if (!gameNightToDelete) {
+          throw new Error("No GameNight exists with that id");
+        }
+        // remove gameNight from User's gameNights
+        const user = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $pull: { gameNights: { _id: gameNightToDelete._id } } },
+          { new: true }
+        );
+
+        return user;
       }
       throw new AuthenticationError("You need to be logged in");
     },
-    removeGame: async (parent, { gameId }, context) => {
+    removeGame: async (parent, { gameNightId, gameId }, context) => {
+      if (context.user) {
+        const gameNight = await GameNight.findOneAndUpdate(
+          { _id: gameNightId },
+          { $pull: { games: { _id: gameId } } },
+          { new: true }
+        );
+
+        return gameNight;
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    },
+    addNote: async (parent, { gameNightId, gameId, notes }, context) => {
       if (context.user) {
         // Do stuff
       }
       throw new AuthenticationError("You need to be logged in!");
     },
-    addNote: async (parent, { gameId, notes }, context) => {
-      if (context.user) {
-        // Do stuff
-      }
-      throw new AuthenticationError("You need to be logged in!");
-    },
-    updateNote: async (parent, { gameId, notes }, context) => {
+    updateNote: async (parent, { gameNightId, gameId, notes }, context) => {
       if (context.user) {
         // Do stuff
       }
