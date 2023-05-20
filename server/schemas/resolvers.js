@@ -84,6 +84,60 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
+    updateGameNight: async (parent, { gameNightId, name }, context) => {
+      if (context.user) {
+        // Do stuff
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    },
+    removeGameNight: async (parent, { gameNightId }, context) => {
+      if (context.user) {
+        // Do stuff
+      }
+      throw new AuthenticationError("You need to be logged in");
+    },
+    removeGame: async (parent, { gameId }, context) => {
+      if (context.user) {
+        // Do stuff
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    },
+    addNote: async (parent, { gameId, notes }, context) => {
+      if (context.user) {
+        // Do stuff
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    },
+    updateNote: async (parent, { gameId, notes }, context) => {
+      if (context.user) {
+        // Do stuff
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    },
+    removeNote: async (parent, { gameId }, context) => {
+      if (context.user) {
+        // Do stuff
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    },
+    addTable: async (parent, { gameId, table }, context) => {
+      if (context.user) {
+        // Do stuff
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    },
+    updateTable: async (parent, { gameId, table }, context) => {
+      if (context.user) {
+        // Do stuff
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    },
+    removeTable: async (parent, { gameId }, context) => {
+      if (context.user) {
+        // Do stuff
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    }
   },
 };
 
