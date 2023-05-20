@@ -48,8 +48,8 @@ const typeDefs = gql`
     addNote(gameId: ID!, notes: String!): GameNight
     updateNote(gameId: ID!, notes: String!): GameNight
     removeNote(gameId: ID!): GameNight
-    addTable(gameId: ID!, table: [rowSchema]): GameNight
-    updateTable(gameId: ID!, table: [rowSchema]): GameNight
+    addTable(gameId: ID!, table: [[Cell]]!): GameNight
+    updateTable(gameId: ID!, table: [[Cell]]!): GameNight
     removeTable(gameId: ID!): GameNight
   }
 `;
