@@ -5,7 +5,7 @@ const Footer = () => {
     <div className="footer text-center bg-white text-dark border border-dark">
       <div>
         <div>
-          <div className="copyright">
+          <div>
             <i className="bi bi-c-circle"></i> 2023{" "}
             <a href="https://github.com/AMess33">
               <i className="bi bi-github"></i>
