@@ -21,6 +21,7 @@ import Game from "./components/Game";
 
 import "./styles/Header.css";
 import "./styles/Home.css";
+import "./styles/Footer.css";
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
   uri: "/graphql",
