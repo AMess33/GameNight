@@ -16,6 +16,9 @@ import Widgets from "./components/Widgets";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
+//just for texting game component, can be removed after testing
+import Game from "./components/Game";
+
 import "./styles/Header.css";
 import "./styles/Home.css";
 // Construct our main GraphQL API endpoint
@@ -56,8 +59,9 @@ function App() {
               <Route path="/me" element={<Profile />} />
               <Route path="/profiles/:username" element={<Profile />} />
               <Route path="/gamenight/:gamenightId" element={<GameNight />} />
+              {/* just for testing game, remove for final product */}
+              <Route path="/game" element={<Game />} />
             </Routes>
-            <Widgets />
           </div>
           <Footer />
         </div>
