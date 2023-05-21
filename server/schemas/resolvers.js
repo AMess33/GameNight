@@ -1,6 +1,23 @@
 const { AuthenticationError } = require("apollo-server-express");
 const { User, GameNight } = require("../models");
 const { signToken } = require("../utils/auth");
+const { ObjectId } = require('mongoose').Types;
+
+// helper for updateGame, all notes, and all table mutations
+const mutateGameSubObject = async (type, gameId, value) => {
+  const setString = "games.$[element]." + type;
+  const gameNight = await GameNight.findOneAndUpdate(
+    { "games._id": gameId },
+    { $set: { [setString]: value} },
+    { arrayFilters: [ { "element._id": new ObjectId(gameId) } ], new: true }
+  ); 
+    
+  if (!gameNight) {
+    throw new Error("No game exists with that id");
+  }
+
+  return gameNight;
+};
 
 const resolvers = {
 
@@ -15,6 +32,7 @@ const resolvers = {
       }
       throw new AuthenticationError("You must be logged in!")
     },
+    
     gameNight: async (parent, { gameNightId }, context) => {
       if (context.user) {
         const gameNight = await GameNight.findOne({ _id: gameNightId });
@@ -48,6 +66,7 @@ const resolvers = {
 
       return { token, user };
     },
+
     addGameNight: async (parent, { title, description }, context) => {
       if (context.user) {
         const userId = context.user._id;
@@ -67,6 +86,7 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
+
     addGame: async (parent, { gameNightId, name }, context) => {
       if (context.user) {
         return GameNight.findOneAndUpdate(
@@ -84,9 +104,10 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
+
     updateGameNight: async (parent, { gameNightId, title, description }, context) => {
       if (context.user) {
-        const gameNight = await GameNight.findOne(
+        const gameNight = await GameNight.findOneAndUpdate(
           { _id: gameNightId },
           { $set: { title, description } },
           { new: true, runValidators: true }
@@ -100,9 +121,14 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
-    updateGame: async (parent, { gameId, name }, context) => {
 
+    updateGame: async (parent, { gameId, name }, context) => {
+      if (context.user) {
+        return await mutateGameSubObject("name", gameId, name);
+      }
+      throw new AuthenticationError("You need to be logged in!");
     },
+
     removeGameNight: async (parent, { gameNightId }, context) => {
       if (context.user) {
         const gameNightToDelete = await GameNight.findOneAndDelete({ _id: gameNightId });
@@ -121,51 +147,62 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in");
     },
-    removeGame: async (parent, { gameNightId, gameId }, context) => {
+
+    removeGame: async (parent, { gameId }, context) => {
       if (context.user) {
         const gameNight = await GameNight.findOneAndUpdate(
-          { _id: gameNightId },
+          { "games._id": gameId },
           { $pull: { games: { _id: gameId } } },
           { new: true }
         );
+
+        if (!gameNight) {
+          throw new Error("No game exists with that id");
+        }
 
         return gameNight;
       }
       throw new AuthenticationError("You need to be logged in!");
     },
-    addNote: async (parent, { gameNightId, gameId, notes }, context) => {
+
+    addNote: async (parent, { gameId, notes }, context) => {
       if (context.user) {
-        // Do stuff
+        return await mutateGameSubObject("notes", gameId, notes);
       }
       throw new AuthenticationError("You need to be logged in!");
     },
-    updateNote: async (parent, { gameNightId, gameId, notes }, context) => {
+
+    updateNote: async (parent, { gameId, notes }, context) => {
       if (context.user) {
-        // Do stuff
+        return await mutateGameSubObject("notes", gameId, notes);
       }
       throw new AuthenticationError("You need to be logged in!");
     },
+
     removeNote: async (parent, { gameId }, context) => {
       if (context.user) {
-        // Do stuff
+        return await mutateGameSubObject("notes", gameId, "");
       }
       throw new AuthenticationError("You need to be logged in!");
     },
+
     addTable: async (parent, { gameId, table }, context) => {
       if (context.user) {
-        // Do stuff
+        return await mutateGameSubObject("table", gameId, table);
       }
       throw new AuthenticationError("You need to be logged in!");
     },
+
     updateTable: async (parent, { gameId, table }, context) => {
       if (context.user) {
-        // Do stuff
+        return await mutateGameSubObject("table", gameId, table);
       }
       throw new AuthenticationError("You need to be logged in!");
     },
+
     removeTable: async (parent, { gameId }, context) => {
       if (context.user) {
-        // Do stuff
+        return await mutateGameSubObject("table", gameId, []);
       }
       throw new AuthenticationError("You need to be logged in!");
     }
