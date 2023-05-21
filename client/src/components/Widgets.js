@@ -12,7 +12,8 @@ const Widgets = () => {
 
   return (
     <div className="container">
-      <div className="col-3">
+      {/* <div className="col-3"> */}
+      <div>
         <div className="card border border-dark rounded d-flex">
           <ul className="list-group list-group-flush">
             <li className="list-group-item">

@@ -1,7 +1,7 @@
 import React from "react";
 import { Navigate, useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
-import GameNightList from "../components/GameNight";
+import GameNightList from "../components/GameNightList";
 
 import { QUERY_USER, QUERY_ME } from "../utils/queries";
 
