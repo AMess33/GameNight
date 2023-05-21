@@ -16,7 +16,9 @@ function Header() {
             </Link>
           </Col>
           <Col className="nav-col option" xs={12} sm={12} lg={7}>
-            <Link className="nav-option">My GameNights</Link>
+            <Link className="nav-option" to="/game">
+              My GameNights
+            </Link>
             <Link className="nav-option" to="/login">
               Log In
             </Link>
