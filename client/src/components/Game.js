@@ -5,35 +5,15 @@ import Col from "react-bootstrap/Col";
 import { Link } from "react-router-dom";
 import "google-fonts";
 import Widgets from "./Widgets";
+import Table from "./Table";
 
-function Game() {
-  // hard code test data for game
-  // needs to be replaced with game data from db
-  const games = [
-    {
-      title: "Yahtzee",
-      notes: "Jessica is the yahtzee GOAT",
-      table: [],
-    },
-    {
-      title: "Monopoly",
-      notes:
-        "Joe agreed to pay double on Sam's properties in exchange for Park Place",
-      table: [],
-    },
-  ];
-
+function Game({ game }) {
   return (
-    <Container className="games">
-      <div className="gamesSection">
-        {games.map((game) => (
-          <h2>{game.title}</h2>
-          // add textarea for notes
-          // add table (create table component)
-        ))}
-      </div>
-      <div className="widgetsSection">
-        <Widgets />
+    <Container>
+      <div className="game">
+        <h2 className="gameTitle margins">{game.title}</h2>
+        <Table />
+        <textarea className="gameNotes">{game.notes}</textarea>
       </div>
     </Container>
   );

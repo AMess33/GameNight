@@ -15,13 +15,12 @@ import Profile from "./pages/Profile";
 import Widgets from "./components/Widgets";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-
-//just for texting game component, can be removed after testing
-import Game from "./components/Game";
+import "google-fonts";
 
 import "./styles/Header.css";
 import "./styles/Home.css";
 import "./styles/Footer.css";
+import "./styles/GameNight.css";
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -61,7 +60,7 @@ function App() {
               <Route path="/profiles/:username" element={<Profile />} />
               <Route path="/gamenight/:gamenightId" element={<GameNight />} />
               {/* just for testing game, remove for final product */}
-              <Route path="/game" element={<Game />} />
+              <Route path="/gameNight" element={<GameNight />} />
             </Routes>
           </div>
           <Footer />
