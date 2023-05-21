@@ -1,18 +1,31 @@
 import React from "react";
+import { useState } from "react";
 import dice from "../Images/002-dice.png";
 import timer from "../Images/001-sand-clock.png";
 import random from "../Images/003-surprise-box.png";
+import DiceModal from "./DiceModal";
+import TimerModal from "./TimerModal";
+import RandomModal from "./RandomizerModal";
 
 const Widgets = () => {
-  const diceClick = (event) => {};
+  const [modalState, setModalState] = useState("");
 
-  const timerClick = (event) => {};
+  const diceClick = (event) => {
+    setModalState("diceModal");
+  };
 
-  const randomClick = (event) => {};
+  const timerClick = (event) => {
+    setModalState("timerModal");
+  };
+
+  const randomClick = (event) => {
+    setModalState("randomModal");
+  };
 
   return (
     <div className="container">
-      <div className="col-3">
+      {/* <div className="col-3"> */}
+      <div>
         <div className="card border border-dark rounded d-flex">
           <ul className="list-group list-group-flush">
             <li className="list-group-item">
@@ -46,6 +59,14 @@ const Widgets = () => {
               </button>
             </li>
           </ul>
+        </div>
+        <div>
+          {modalState ===
+            "diceModal"(<DiceModal close={() => setModalState("")} />)}
+          {modalState ===
+            "timerModal"(<TimerModal close={() => setModalState("")} />)}
+          {modalState ===
+            "randomModal"(<RandomModal close={() => setModalState("")} />)}
         </div>
       </div>
     </div>
