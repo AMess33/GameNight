@@ -13,17 +13,24 @@ const typeDefs = gql`
     _id: ID
     title: String
     description: String
+    userId: ID
     games: [Game]!
   }
   # make sure table and cell are working properly
   type Game {
+    _id: ID
     name: String
     notes: String
-    table: [[Cell]]!
+    # table: [[Cell]]!
+    table: [[String]]!
   }
 
   type Cell {
     content: String
+  }
+
+  input Table {
+    rows: [[String]]!
   }
 
   type Auth {
@@ -41,15 +48,15 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     addGameNight(title: String!, description: String): GameNight
     addGame(gameNightId: ID!, name: String!): GameNight
-    updateGameNight(title: String, title: String, description: String): GameNight
+    updateGameNight(gameNightId: ID!, title: String, description: String): GameNight
     updateGame(gameId: ID!, name: String!): GameNight
     removeGameNight(gameNightId: ID!): User
     removeGame(gameId: ID!): GameNight
     addNote(gameId: ID!, notes: String!): GameNight
     updateNote(gameId: ID!, notes: String!): GameNight
     removeNote(gameId: ID!): GameNight
-    addTable(gameId: ID!, table: [[Cell]]!): GameNight
-    updateTable(gameId: ID!, table: [[Cell]]!): GameNight
+    addTable(gameId: ID!, table: Table!): GameNight
+    updateTable(gameId: ID!, table: Table!): GameNight
     removeTable(gameId: ID!): GameNight
   }
 `;
