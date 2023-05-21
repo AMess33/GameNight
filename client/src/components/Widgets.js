@@ -61,9 +61,12 @@ const Widgets = () => {
           </ul>
         </div>
         <div>
-          {modalState === "diceModal"(<DiceModal />)}
-          {modalState === "timerModal"(<TimerModal />)}
-          {modalState === "randomModal"(<RandomModal />)}
+          {modalState ===
+            "diceModal"(<DiceModal close={() => setModalState("")} />)}
+          {modalState ===
+            "timerModal"(<TimerModal close={() => setModalState("")} />)}
+          {modalState ===
+            "randomModal"(<RandomModal close={() => setModalState("")} />)}
         </div>
       </div>
     </div>

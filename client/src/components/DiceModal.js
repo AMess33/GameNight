@@ -1,21 +1,11 @@
 import React, { useState } from "react";
-import {
-  MDBBtn,
-  MDBModal,
-  MDBModalDialog,
-  MDBModalContent,
-  MDBModalHeader,
-  MDBModalTitle,
-  MDBModalBody,
-  MDBModalFooter,
-} from "mdb-react-ui-kit";
 
-import Dice1 from "./images/Dice1.png";
-import Dice2 from "./images/Dice2.png";
-import Dice3 from "./images/Dice3.png";
-import Dice4 from "./images/Dice4.png";
-import Dice5 from "./images/Dice5.png";
-import Dice6 from "./images/Dice6.png";
+import Dice1 from "../Images/Dice1.png";
+import Dice2 from "../Images/Dice2.png";
+import Dice3 from "../Images/Dice3.png";
+import Dice4 from "../Images/Dice4.png";
+import Dice5 from "../Images/Dice5.png";
+import Dice6 from "../Images/Dice6.png";
 
 const DiceModal = () => {
   // need to import modal state and reset it on close from widgets component
@@ -37,55 +27,51 @@ const DiceModal = () => {
   };
 
   return (
-    <>
-      <MDBModal show={basicModal} setShow={setBasicModal} tabIndex="-1">
-        <MDBModalDialog>
-          <MDBModalContent>
-            <MDBModalHeader>
-              <MDBModalTitle>Dice Roll</MDBModalTitle>
-              <MDBBtn
-                className="btn-close"
-                color="none"
-                onClick={toggleShow}
-              ></MDBBtn>
-            </MDBModalHeader>
-            <MDBModalBody>
-              <center>
-                <div className="container text-center p-2 m-2">
-                  <img
-                    src={image}
-                    style={{ width: "300px", height: "300px" }}
-                    className="rounded float-left align-middle p-2 m-2"
-                    alt="dice1"
-                  ></img>
-                  <div style={{ width: "5px", display: "inline-block" }}></div>
-                  <img
-                    src={image2}
-                    style={{ width: "300px", height: "300px" }}
-                    className="rounded float right align-middle w-25 p-2 m-2"
-                    alt="dice2"
-                  ></img>
-                </div>
-                <button
-                  type="button"
-                  class="btn btn-outline-dark"
-                  onClick={rollDice()}
-                >
-                  Roll Dice
-                </button>
-              </center>
-            </MDBModalBody>
-
-            <MDBModalFooter>
-              <MDBBtn color="secondary" onClick={toggleShow}>
-                Close
-              </MDBBtn>
-              <MDBBtn>Save changes</MDBBtn>
-            </MDBModalFooter>
-          </MDBModalContent>
-        </MDBModalDialog>
-      </MDBModal>
-    </>
+    <div className="modal-dialog">
+      <div className="modal-content">
+        <div className="modal-header">
+          <h5 className="modal-title">Dice Roll</h5>
+          <button type="button" className="close" onClick={toggleShow}>
+            <span>&times;</span>
+          </button>
+        </div>
+        <div className="modal-body">
+          <center>
+            <div className="container text-center p-2 m-2">
+              <img
+                src={image}
+                className="rounded float-left align-middle p-2 m-2"
+                alt="dice1"
+                style={{ width: "300px", height: "300px" }}
+              />
+              <div
+                className="rounded float-right align-middle w-25 p-2 m-2"
+                style={{ width: "5px", display: "inline-block" }}
+              ></div>
+              <img
+                src={image2}
+                className="rounded float-right align-middle w-25 p-2 m-2"
+                alt="dice2"
+                style={{ width: "300px", height: "300px" }}
+              />
+            </div>
+            <button
+              type="button"
+              className="btn btn-outline-dark"
+              onClick={rollDice()}
+            >
+              Roll Dice
+            </button>
+          </center>
+        </div>
+        <div className="modal-footer">
+          <button className="btn btn-secondary" onClick={toggleShow}>
+            Close
+          </button>
+          <button className="btn">Save changes</button>
+        </div>
+      </div>
+    </div>
   );
 };
 
