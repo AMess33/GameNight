@@ -1,3 +1,76 @@
 [
-
+  {
+    "name": "Chess",
+    "notes": "30 minute time limit",
+    "table": [
+      ["Joe", "Draw", "Draw", "Win"],
+      ["Frank", "Draw", "Draw", "Lose"],
+      ["Mary", "Win", "Win", "Lose"],
+      ["Carla", "Lose", "Lose", "Win"],
+      ["Konrad", "Draw", "Draw", "Win"],
+      ["Missy", "Draw", "Draw", "Lose"],
+      ["Darius", "Win", "Win", "Lose"],
+      ["Fred", "Lose", "Lose", "Win"]
+    ]
+  },
+  {
+    "name": "Cribbage",
+    "notes": "",
+    "table": [
+      ["Clark", "88", "20", "36", "22"],
+      ["Emily", "23", "111", "35", "45"],
+      ["Carol", "24", "88", "12", "45"]
+    ]
+  },
+  {
+    "name": "Candyland",
+    "notes": "It's not complex, but it's fun",
+    "table": [
+      ["John", "Winner", ""],
+      ["Mark", "", "Winner"],
+      ["Jeremy", "", ""]
+    ]
+  },
+  {
+    "name": "Farkle",
+    "notes": "We ended up playing 4 rounds",
+    "table": [
+      ["Sherry", "70", "30", "22", "50", "Total:", "172"],
+      ["Gus", "20", "80", "25", "50", "Total:", "175"],
+      ["Steve", "60", "40", "35", "33", "Total:", "168"]
+    ]
+  },
+  {
+    "name": "Dungeons & Dragons",
+    "notes": "Picking up our ongoing game in the forests of doom. Using modified rules from the 12th edition.",
+    "table": [
+      ["Jerry", "Mage"],
+      ["Jenn", "Halfling"],
+      ["Carrie", "Bard"]
+    ]
+  },
+  {
+    "name": "Settlers of Catan",
+    "notes": "Game play time: 2.5 hours. Winner: Andy.",
+    "table": []
+  },
+  {
+    "name": "Poker",
+    "notes": "2 dollar stakes, played 10 hands",
+    "table": [
+      ["Chris", "+$10"],
+      ["Jessie", "-$4"],
+      ["Jessica", "Even"]
+    ]
+  },
+  {
+    "name": "Gin Rummy",
+    "notes": "5 hands, 4 players",
+    "table": [
+      ["Gustave", "225"],
+      ["Arnold", "332"],
+      ["Greta", "190"],
+      ["MaryAnn", "215"]
+    ]
+  }
 ]

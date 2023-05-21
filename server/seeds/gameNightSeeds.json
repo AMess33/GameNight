@@ -1,3 +1,38 @@
 [
-
+  {
+    "title": "Game Night Tuesdays",
+    "description": "We meet every Tuesday at 7pm in the basement of First Methodist at 2nd and Main St."
+  },
+  {
+    "title": "Monthly Game Mondays",
+    "description": "A small group of friends playing lots of different kinds of games."
+  },
+  {
+    "title": "Chess Club",
+    "description": "We play chess and sometimes turn based strategy card games, mostly Magik"
+  },
+  {
+    "title": "Cards at Bernice's House",
+    "description": "We try to meet once on the last Friday of every month to play Gin Rummy, Cribbage, or Hearts.  We vote each time at the beginning to decide what to play."
+  },
+  {
+    "title": "Friday Night Games",
+    "description": "2nd Friday of every month in Carl's garage"
+  },
+  {
+    "title": "Games on Sundays",
+    "description": "Every other Sunday we play casual board games together"
+  },
+  {
+    "title": "All Games Welcome",
+    "description": "We'll play anything.  Bring a game, and we'll try it!"
+  },
+  {
+    "title": "Games and Conversation",
+    "description": "We play mostly cards"
+  },
+  {
+    "title": "Manic Monday Game Night",
+    "description": "Games every Monday night at 7pm at the Veteran's Hall.  All games welcome."
+  }
 ]
