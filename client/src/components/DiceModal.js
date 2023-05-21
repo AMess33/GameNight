@@ -18,6 +18,7 @@ import Dice5 from "./images/Dice5.png";
 import Dice6 from "./images/Dice6.png";
 
 const DiceModal = () => {
+  // need to import modal state and reset it on close from widgets component
   const [basicModal, setBasicModal] = useState(false);
 
   const toggleShow = () => setBasicModal(!basicModal);
