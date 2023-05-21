@@ -48,7 +48,6 @@ db.once('open', async () => {
 
     // Create gameNights from gameNight data
     const gameNights = await GameNight.insertMany(gameNightData)
-
     // Loop through games and add them to gameNights games array
     for (const gameNight of gameNights) {
       // get games to put in gameNight's games list
@@ -60,9 +59,11 @@ db.once('open', async () => {
       // this gameNight belongs to this user now
       gameNight.userId = user._id;
       // save document to mongodb
-      gameNight.save();
+      const gn = await gameNight.save();
+      console.log("gn", gn);
       // probably a better way to do this
-      user.save();
+      const usr = await user.save();
+      console.log("usr", usr);
     } 
 
   } catch (err) {
