@@ -1,3 +1,20 @@
 [
-
+  {
+    "username": "Andrew",
+    "email": "andrew@example.com",
+    "password": "gamenight01",
+    "gameNights": []
+  },
+  {
+    "username": "Jacob",
+    "email": "jacob@example.com",
+    "password": "gamenight01",
+    "gameNights": []
+  },
+  {
+    "username": "Chris",
+    "email": "chris@example.com",
+    "password": "gamenight01",
+    "gameNights": []
+  }
 ]
