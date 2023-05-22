@@ -24,18 +24,17 @@ const DiceModal = (props) => {
 
   return (
     <Modal open onClose={props.close}>
-      <Box>
-        <h5 className="">Dice Roll</h5>
-        <button type="button" className="close" onClick={props.close}>
+      <Box className="bg-dark w-75 container border border-white rounded">
+        <button type="button" className="close m-2" onClick={props.close}>
           <span>&times;</span>
         </button>
-
+        <h2 className="text-center">Dice Roll</h2>
         <div className="">
           <center>
-            <div className="container text-center p-2 m-2">
+            <div className="container text-center  p-2 m-2">
               <img
                 src={image}
-                className="rounded float-left align-middle p-2 m-2"
+                className="rounded float-left align-middle border border-dark rounded m-2"
                 alt="dice1"
                 style={{ width: "300px", height: "300px" }}
               />
@@ -45,14 +44,14 @@ const DiceModal = (props) => {
               ></div>
               <img
                 src={image2}
-                className="rounded float-right align-middle p-2 m-2"
+                className="rounded float-right align-middle border border-dark rounded m-2"
                 alt="dice2"
                 style={{ width: "300px", height: "300px" }}
               />
             </div>
             <button
               type="button"
-              className="btn btn-outline-dark"
+              className="btn btn-light  text-dark"
               onClick={rollDice}
             >
               Roll Dice
@@ -60,7 +59,7 @@ const DiceModal = (props) => {
           </center>
         </div>
         <div className="modal-footer">
-          <button className="btn btn-secondary" onClick={props.close}>
+          <button className="btn btn-secondary m-2" onClick={props.close}>
             Close
           </button>
         </div>
