@@ -40,35 +40,45 @@ const CountdownTimer = (props) => {
 
   return (
     <Modal open onClose={props.close}>
-      <Box>
-        <h5 className="modal-title">Countdown Timer</h5>
+      <Box className="bg-dark w-75 container border border-white rounded">
         <button type="button" className="close" onClick={props.close}>
           <span>&times;</span>
         </button>
-        <div className="modal-body">
+        <h2 className="text-center">Countdown Timer</h2>
+
+        <div className="text-center">
           <div>
             <input
               type="number"
+              placeholder="60"
               value={initialDuration}
               onChange={(e) => setInitialDuration(parseInt(e.target.value))}
             />
-            <button
-              onClick={handleStart}
-              disabled={timer || initialDuration <= 0}
-            >
-              Start
-            </button>
-            <button onClick={handleStop} disabled={!timer}>
-              Stop
-            </button>
-            <button
-              onClick={handleReset}
-              disabled={!timer && initialDuration <= 0}
-            >
-              Reset
-            </button>
+            <div className="">
+              <button
+                className="m-2 btn btn-light  text-dark"
+                onClick={handleStart}
+                disabled={timer || initialDuration <= 0}
+              >
+                Start
+              </button>
+              <button
+                className="m-2 btn btn-light  text-dark"
+                onClick={handleStop}
+                disabled={!timer}
+              >
+                Stop
+              </button>
+              <button
+                className="m-2 btn btn-light  text-dark"
+                onClick={handleReset}
+                disabled={!timer && initialDuration <= 0}
+              >
+                Reset
+              </button>
+            </div>
           </div>
-          <p>{duration}</p>
+          <h1 className="text-weight-bold">{duration}</h1>
           <h1 className={duration === 0 ? "" : "d-none"}>Time's Up!</h1>
         </div>
       </Box>
