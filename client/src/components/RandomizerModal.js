@@ -53,7 +53,7 @@ const RandomizerModal = (props) => {
   };
 
   return (
-    <Modal style={{ overflow: "scroll" }} open>
+    <Modal style={{ overflow: "scroll" }} open onClose={props.close}>
       <Box className="bg-dark w-75 container border border-white rounded">
         <button type="button" className="close m-2" onClick={props.close}>
           <span>&times;</span>
