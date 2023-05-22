@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Modal, Box, Typography } from "@mui/material";
 
 import Dice1 from "../Images/Dice1.png";
 import Dice2 from "../Images/Dice2.png";
@@ -22,53 +23,49 @@ const DiceModal = (props) => {
   };
 
   return (
-    <div className="" role="dialog">
-      <div className="modal-dialog">
-        <div className="modal-content">
-          <div className="modal-header">
-            <h5 className="modal-title">Dice Roll</h5>
-            <button type="button" className="close" onClick={props.close}>
-              <span>&times;</span>
+    <Modal open onClose={props.close}>
+      <Box>
+        <h5 className="">Dice Roll</h5>
+        <button type="button" className="close" onClick={props.close}>
+          <span>&times;</span>
+        </button>
+
+        <div className="">
+          <center>
+            <div className="container text-center p-2 m-2">
+              <img
+                src={image}
+                className="rounded float-left align-middle p-2 m-2"
+                alt="dice1"
+                style={{ width: "300px", height: "300px" }}
+              />
+              <div
+                className="rounded float-right align-middle p-2 m-2"
+                style={{ width: "5px", display: "inline-block" }}
+              ></div>
+              <img
+                src={image2}
+                className="rounded float-right align-middle p-2 m-2"
+                alt="dice2"
+                style={{ width: "300px", height: "300px" }}
+              />
+            </div>
+            <button
+              type="button"
+              className="btn btn-outline-dark"
+              onClick={rollDice}
+            >
+              Roll Dice
             </button>
-          </div>
-          <div className="modal-body">
-            <center>
-              <div className="container text-center p-2 m-2">
-                <img
-                  src={image}
-                  className="rounded float-left align-middle p-2 m-2"
-                  alt="dice1"
-                  style={{ width: "300px", height: "300px" }}
-                />
-                <div
-                  className="rounded float-right align-middle w-25 p-2 m-2"
-                  style={{ width: "5px", display: "inline-block" }}
-                ></div>
-                <img
-                  src={image2}
-                  className="rounded float-right align-middle w-25 p-2 m-2"
-                  alt="dice2"
-                  style={{ width: "300px", height: "300px" }}
-                />
-              </div>
-              <button
-                type="button"
-                className="btn btn-outline-dark"
-                onClick={rollDice}
-              >
-                Roll Dice
-              </button>
-            </center>
-          </div>
-          <div className="modal-footer">
-            <button className="btn btn-secondary" onClick={props.close}>
-              Close
-            </button>
-            <button className="btn">Save changes</button>
-          </div>
+          </center>
         </div>
-      </div>
-    </div>
+        <div className="modal-footer">
+          <button className="btn btn-secondary" onClick={props.close}>
+            Close
+          </button>
+        </div>
+      </Box>
+    </Modal>
   );
 };
 
