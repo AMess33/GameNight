@@ -12,6 +12,7 @@ const Widgets = () => {
 
   const diceClick = (event) => {
     setModalState("diceModal");
+    console.log("working");
   };
 
   const timerClick = (event) => {
@@ -42,7 +43,7 @@ const Widgets = () => {
               <h4>Timer</h4>
               <button
                 type="button"
-                onClick={timerClick()}
+                onClick={timerClick}
                 className="btn btn-light border border-dark rounded"
               >
                 <img src={timer} className="image" alt="GameTimer"></img>
@@ -52,7 +53,7 @@ const Widgets = () => {
               <h4>Randomizer</h4>
               <button
                 type="button"
-                onClick={randomClick()}
+                onClick={randomClick}
                 className="btn btn-light border border-dark rounded"
               >
                 <img src={random} className="image" alt="Randomizer"></img>
@@ -61,12 +62,15 @@ const Widgets = () => {
           </ul>
         </div>
         <div>
-          {modalState ===
-            "diceModal"(<DiceModal close={() => setModalState("")} />)}
-          {modalState ===
-            "timerModal"(<TimerModal close={() => setModalState("")} />)}
-          {modalState ===
-            "randomModal"(<RandomModal close={() => setModalState("")} />)}
+          {modalState === "diceModal" && (
+            <DiceModal close={() => setModalState("")} />
+          )}
+          {modalState === "timerModal" && (
+            <TimerModal close={() => setModalState("")} />
+          )}
+          {modalState === "randomModal" && (
+            <RandomModal close={() => setModalState("")} />
+          )}
         </div>
       </div>
     </div>
