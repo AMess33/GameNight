@@ -9,6 +9,7 @@ import RandomModal from "./RandomizerModal";
 
 const Widgets = () => {
   const [modalState, setModalState] = useState("");
+  console.log(modalState);
 
   const diceClick = (event) => {
     setModalState("diceModal");
@@ -33,7 +34,7 @@ const Widgets = () => {
               <h4>Dice Roll</h4>
               <button
                 type="button"
-                onClick={diceClick()}
+                onClick={diceClick}
                 className="btn btn-light border border-dark rounded"
               >
                 <img src={dice} className="image" alt="RollDice"></img>

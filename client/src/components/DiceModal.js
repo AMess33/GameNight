@@ -22,7 +22,7 @@ const DiceModal = (props) => {
   };
 
   return (
-    <div className="modal" role="dialog">
+    <div className="" role="dialog">
       <div className="modal-dialog">
         <div className="modal-content">
           <div className="modal-header">
