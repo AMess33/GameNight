@@ -9,11 +9,9 @@ import RandomModal from "./RandomizerModal";
 
 const Widgets = () => {
   const [modalState, setModalState] = useState("");
-  console.log(modalState);
 
   const diceClick = (event) => {
     setModalState("diceModal");
-    console.log("working");
   };
 
   const timerClick = (event) => {
