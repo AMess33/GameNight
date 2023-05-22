@@ -60,10 +60,8 @@ db.once('open', async () => {
       gameNight.userId = user._id;
       // save document to mongodb
       const gn = await gameNight.save();
-      console.log("gn", gn);
       // probably a better way to do this
       const usr = await user.save();
-      console.log("usr", usr);
     } 
 
   } catch (err) {
