@@ -9,7 +9,7 @@ const gameNightData = require('./gameNightSeeds.json');
 const MAX_GAMES = 5;
 
 // helpers
-const getRandNum = (max) => Math.floor(Math.random() * max);
+const getRandRange = (min, max) => min + Math.floor(Math.random() * (max - min));
 const getRandIndex = (arr) => Math.floor(Math.random() * arr.length);
 const getRandUniqueElems = (arr, num) => {
   const seenIndex = {};
@@ -51,7 +51,7 @@ db.once('open', async () => {
     // Loop through games and add them to gameNights games array
     for (const gameNight of gameNights) {
       // get games to put in gameNight's games list
-      gameNight.games = getRandUniqueElems(gameData, MAX_GAMES);
+      gameNight.games = getRandUniqueElems(gameData, getRandRange(1, MAX_GAMES));
       // get a random user 
       const user = users[getRandIndex(users)];
       // Add gameNight._id to random user's gameNights list
@@ -60,7 +60,6 @@ db.once('open', async () => {
       gameNight.userId = user._id;
       // save document to mongodb
       const gn = await gameNight.save();
-      // probably a better way to do this
       const usr = await user.save();
     } 
 
