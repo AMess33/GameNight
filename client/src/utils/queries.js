@@ -1,19 +1,31 @@
-import { gql } from "@apollo/client";
+import { gql } from '@apollo/client';
 
-// i just added these queries so the profile page could render. they're not the actualy queries we need to use
-
-export const QUERY_USER = gql`
-  mutation getUser($userId: ID!) {
-    getUser(userId: $userId) {
+export const QUERY_GAME_NIGHTS = gql`
+  query gameNights {
+    _id
+    title
+    description
+    games {
       _id
+      name
+      notes
     }
   }
 `;
 
-export const QUERY_ME = gql`
-  mutation getUser($userId: ID!) {
-    getUser(userId: $userId) {
+export const QUERY_GAME_NIGHT = gql`
+  query gameNight($gameNightId: ID!) {
+    gameNight(gameNightId: $gameNightId) {
       _id
+      title
+      description
+      userId
+      games {
+        _id
+        name
+        notes
+        table
+      }
     }
   }
 `;
