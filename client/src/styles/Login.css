@@ -1,0 +1,17 @@
+.loginForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.loginForm * {
+  margin: 10px 0;
+}
+
+.loginPage {
+  /* width: 80%; */
+  margin: 30px auto;
+}
+
+.loginContainer {
+  width: 100%;
+}
