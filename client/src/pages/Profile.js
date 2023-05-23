@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Navigate, useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import GameNightList from "../components/GameNightList";
+import GameNightForm from "../components/gameNightForm";
 
 import { QUERY_GAME_NIGHTS } from "../utils/queries";
 
@@ -55,7 +56,7 @@ const Profile = () => {
         </div>
         <div>
           {modalState === "gameNightForm" && (
-            <gameNightForm close={() => setModalState("")} />
+            <GameNightForm close={() => setModalState("")} />
           )}
         </div>
       </div>
