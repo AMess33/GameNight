@@ -41,8 +41,8 @@ const Login = (props) => {
   };
 
   return (
-    <main className="flex-row d-flex justify-content-center mb-4">
-      <div className="col-8  p-4">
+    <main className="d-flex justify-content-center loginPage">
+      <div className="loginContainer p-4">
         <div className="card text-center">
           <h4 className="card-header bg-dark text-light p-2">Login</h4>
           <div className="card-body">
@@ -52,7 +52,7 @@ const Login = (props) => {
                 <Link to="/">back to the homepage.</Link>
               </p>
             ) : (
-              <form onSubmit={handleFormSubmit}>
+              <form className="loginForm" onSubmit={handleFormSubmit}>
                 <input
                   className="form-input mx-2"
                   placeholder="Your email"
