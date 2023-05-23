@@ -4,7 +4,7 @@ import { TextField, Button, Stack } from "@mui/material";
 import Text from "react-bootstrap";
 
 import { useMutation } from "@apollo/client";
-// import { ADD_USER } from "../utils/mutations";
+import { ADD_USER } from "../utils/mutations";
 
 import Auth from "../utils/auth";
 
@@ -14,7 +14,7 @@ const Signup = () => {
     email: "",
     password: "",
   });
-  // const [addUser, { error, data }] = useMutation();
+  const [addUser, { error, data }] = useMutation(ADD_USER);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -28,15 +28,15 @@ const Signup = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
-    //   try {
-    //     const { data } = await addUser({
-    //       variables: { ...formState },
-    //     });
+    try {
+      const { data } = await addUser({
+        variables: { ...formState },
+      });
 
-    //     Auth.login(data.addUser.token);
-    //   } catch (e) {
-    //     console.log(e);
-    //   }
+      Auth.login(data.addUser.token);
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   return (
