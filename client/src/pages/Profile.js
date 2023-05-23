@@ -1,13 +1,20 @@
 import React from "react";
+import { useState } from "react";
 import { Navigate, useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import GameNightList from "../components/GameNightList";
+import GameNightForm from "../components/gameNightForm";
 
 import { QUERY_GAME_NIGHTS } from "../utils/queries";
 
 import Auth from "../utils/auth";
 
 const Profile = () => {
+  const [modalState, setModalState] = useState("");
+
+  const createGameNight = (event) => {
+    setModalState("gameNightForm");
+  };
   const { username: userParam } = useParams();
 
   const { loading, data } = useQuery(QUERY_GAME_NIGHTS);
@@ -37,9 +44,20 @@ const Profile = () => {
         <h2 className="col-12 col-md-10 bg-dark text-light p-3 mb-5">
           Viewing {userParam ? `${user.username}'s` : "your"} Game Nights!
         </h2>
-
+        <button
+          type="button"
+          className="btn btn-light text-dark"
+          onClick={createGameNight}
+        >
+          Create a new Game Night!
+        </button>
         <div className="col-10 mb-3">
           <GameNightList gameNights={user.gameNights} />
+        </div>
+        <div>
+          {modalState === "gameNightForm" && (
+            <GameNightForm close={() => setModalState("")} />
+          )}
         </div>
       </div>
     </div>
