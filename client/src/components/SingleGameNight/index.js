@@ -4,8 +4,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { Link } from "react-router-dom";
 import "google-fonts";
-import Widgets from "./Widgets";
-import Table from "./Table";
+import Widgets from "../Widgets";
 
 function Game({ game }) {
   return (
