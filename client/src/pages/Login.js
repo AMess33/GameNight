@@ -41,7 +41,7 @@ const Login = (props) => {
   };
 
   return (
-    <main className="d-flex justify-content-center loginPage">
+    <main className="col-sm-10 col-md-6 col-lg-4 d-flex justify-content-center loginPage">
       <div className="loginContainer p-4">
         <div className="card text-center">
           <h4 className="card-header bg-dark text-light p-2">Login</h4>
