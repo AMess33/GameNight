@@ -1,0 +1,53 @@
+.gameNotes {
+  width: 80%;
+}
+
+.gameTitle {
+  font-family: "VT323", monospace;
+  font-size: 3rem;
+}
+
+.tableRow {
+  display: flex;
+}
+
+.cell {
+  width: 10%;
+}
+
+.margins {
+  margin-bottom: 20px;
+}
+
+.addBtn {
+  background-color: white;
+  padding: 10px;
+  border-radius: 3px;
+  margin-right: 10px;
+  font-family: "VT323", monospace;
+  width: 100px;
+}
+
+.gameSide {
+  margin-top: 30px;
+  margin-bottom: 100px;
+}
+
+.gameNightName {
+  margin: 20px 0 20px 0px;
+  font-size: 3rem;
+}
+
+.game {
+  margin-top: 50px;
+  background-color: rgba(0, 0, 0, 0.467);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.widgets {
+  position: fixed;
+  top: 50%;
+  right: 10%;
+  transform: translate(50%, -50%);
+}
