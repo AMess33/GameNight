@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 
@@ -21,9 +21,8 @@ const Note = ({ game }) => {
         as="textarea" 
         rows={3} 
         onChange={updateNote}
-      >
-      { note }
-      </Form.Control>
+        defaultValue={note}
+      />
     </Form.Group>
   );
 };

@@ -4,12 +4,17 @@ import "google-fonts";
 
 import Table from './Table';
 import Note from './Note';
+import RemoveGameForm from './RemoveGameForm';
 
-function Game({ game }) {
+// exports
+export {default as AddGameForm} from './AddGameForm';
+
+export function Game({ game }) {
   return (
     <>
       <Container>
         <div className="game">
+          <RemoveGameForm game={game} />
           <h2 className="gameTitle margins">{game.name}</h2>
           <Table game={game} />
           <Note game={game} />
@@ -17,6 +22,4 @@ function Game({ game }) {
       </Container>
     </>
   );
-}
-
-export default Game;
+};
