@@ -1,40 +1,18 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
 import Stack from 'react-bootstrap/Stack';
 import Button from 'react-bootstrap/Button';
 
-import { useMutation } from '@apollo/client';
-import { UPDATE_TABLE } from '../../utils/mutations';
+// import { useMutation } from '@apollo/client';
+// import { UPDATE_TABLE } from '../../utils/mutations';
 
 const Table = ({ game }) => {
   const [tableData, setTableData] = useState(game.table);
-  const tableChange = useRef(false);
 
-  const [updateTable] = useMutation(UPDATE_TABLE)
-  // TODO: Fix or move to add table button
-  useEffect(() => {
-    return () => {
-      if (tableChange.current) {
-        try {
-          updateTable({
-            variables: { 
-              gameId: game._id,
-              rows: tableData },
-          });
-        } catch(err) {
-          console.log(err);
-        }
-      } 
-      else {
-        return;
-      }
-    }  
-  }, []);
-
+  // const [updateTable] = useMutation(UPDATE_TABLE)
+  
   const handleCellChange = (e, row, col) => {
     let newTable = [...tableData];
     newTable[row][col] = e.target.value;
-    console.log(tableData);
-    console.log(tableChange.current);
     setTableData(newTable);
 
   }
@@ -74,7 +52,6 @@ const Table = ({ game }) => {
           size="sm"
           variant="outline-light"
           onClick={(e) => {
-            tableChange.current = true;
             if (!tableData.length) {
               setTableData([[""], [""]])
             }
@@ -91,7 +68,6 @@ const Table = ({ game }) => {
           size="sm"
           variant="outline-light"
           onClick={(e) => {
-            tableChange.current = true;
             if (!tableData.length) {
               setTableData([["", ""]]);
               return;

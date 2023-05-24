@@ -5,7 +5,10 @@ import "google-fonts";
 import Table from './Table';
 import Note from './Note';
 
-function Game({ game }) {
+// exports
+export {default as AddGameForm} from './AddGameForm';
+
+export function Game({ game }) {
   return (
     <>
       <Container>
@@ -17,6 +20,4 @@ function Game({ game }) {
       </Container>
     </>
   );
-}
-
-export default Game;
+};
