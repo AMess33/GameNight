@@ -21,9 +21,6 @@ const GameNight = (props) => {
     variables: { gameNightId },
   });
 
-  error && console.error(error);
-
-  let games = [];
   if (loading) {
     return "Loading..."
   }
@@ -31,24 +28,31 @@ const GameNight = (props) => {
     return `Error! ${error.message}`
   }
 
-  console.log(data.gameNight.games);
+  if (!data) {
+    console.log("God Dammit!!!");
+    return null;
+  }
+
   return (
     <Container>
       <Row>
-        <Col className="gameSide" lg={10}>
-          <h2 className="gameNightName">{"Game Night Title" && data?.gameNight.title}</h2>
-
-          <div className="gamesList">
-            {data.gameNight.games.map((game) => (
-              <Game game={game} />
-            ))}
-          </div>
-        </Col>
-        <Col lg={2}>
-          <div className="widgets">
-            <Widgets />
-          </div>
-        </Col>
+        {data && ( 
+          <>
+            <Col className="gameSide" lg={10}>
+              <h2 className="gameNightName">Dummy Title</h2>
+              <div className="gamesList">
+                {data.gameNight.games.map((game) => (
+                  <Game key={game._id} game={game} />
+                ))}
+              </div>
+            </Col>
+            <Col lg={2}>
+              <div className="widgets">
+                <Widgets />
+              </div>
+            </Col>
+          </>
+        )}
       </Row>
     </Container>
   );
