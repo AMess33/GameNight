@@ -12,7 +12,7 @@ function Game({ game }) {
         <div className="game">
           <h2 className="gameTitle margins">{game.name}</h2>
           <Table game={game} />
-          <Note game={game} />;
+          <Note game={game} />
         </div>
       </Container>
     </>

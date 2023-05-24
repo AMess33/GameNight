@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -41,7 +41,7 @@ const GameNight = (props) => {
             <Col className="gameSide" lg={10}>
               <h2 className="gameNightName">Dummy Title</h2>
               <div className="gamesList">
-                {data.gameNight.games.map((game) => (
+                {data.gameNight && data.gameNight.games.map((game) => (
                   <Game key={game._id} game={game} />
                 ))}
               </div>

@@ -9,14 +9,16 @@ const Table = ({ game }) => {
   const [tableData, setTableData] = useState(game.table);
   const tableChange = useRef(false);
 
-  const [updateTable, { error }] = useMutation(UPDATE_TABLE)
- 
+  const [updateTable] = useMutation(UPDATE_TABLE)
+  // TODO: Fix or move to add table button
   useEffect(() => {
     return () => {
       if (tableChange.current) {
         try {
           updateTable({
-            variables: { rows: tableData },
+            variables: { 
+              gameId: game._id,
+              rows: tableData },
           });
         } catch(err) {
           console.log(err);
@@ -31,7 +33,10 @@ const Table = ({ game }) => {
   const handleCellChange = (e, row, col) => {
     let newTable = [...tableData];
     newTable[row][col] = e.target.value;
+    console.log(tableData);
+    console.log(tableChange.current);
     setTableData(newTable);
+
   }
 
   return (
