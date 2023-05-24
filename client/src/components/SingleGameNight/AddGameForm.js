@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
@@ -13,6 +13,7 @@ const AddGameForm = ({ gameNightId }) => {
 
   // for future ref to submit button
   const refButton = useRef();
+  const timerRef = useRef(null);
 
   const [showSuccess, setShowSuccess] = useState(false);
   const [showError, setShowError] = useState(false);
@@ -29,19 +30,24 @@ const AddGameForm = ({ gameNightId }) => {
 
   const enableSubmitButton = () => {
     // re-enables submit button after 3 seconds
-    setTimeout(() => {
+    timerRef.current = setTimeout(() => {
       refButton.current.removeAttribute('disabled');
     }, 3000);
   }
 
+  // clear setTimout when component unmounts
+  useEffect(() => {
+    return () => clearTimeout(timerRef.current);
+  }, []);
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    // Clear input
+    setName('');
     // Prevent double-clicks
     refButton.current.setAttribute('disabled', true);
     // re-enable after 3 seconds
     enableSubmitButton();
-    // clear input
-    setName("");
 
     try {
       addGame({
@@ -63,6 +69,7 @@ const AddGameForm = ({ gameNightId }) => {
               aria-label="Enter the name of your game"
               placeholder="Enter the name of your game"
               onChange={handleInputChange}
+              defaultValue={name}
             />
             <Button
               ref={refButton}
