@@ -22,7 +22,7 @@ function Header() {
           <Col className="nav-col option" xs={12} sm={6} lg={4}>
             {Auth.loggedIn() ? (
               <>
-                <Link className="nav-option" to="/gameNight">
+                <Link className="nav-option" to="/me">
                   My GameNights
                 </Link>
                 <Link className="nav-option" onClick={logout} to="/">
