@@ -38,6 +38,7 @@ const Footer = () => {
             href="https://www.flaticon.com/authors/creativecons"
             title="CreativeCons"
             className="text-dark"
+            target="_blank"
           >
             CreativeCons
           </a>
@@ -46,6 +47,7 @@ const Footer = () => {
             href="https://www.flaticon.com/authors/noomtah"
             title="noomtah"
             className="text-dark"
+            target="_blank"
           >
             noomtah
           </a>
@@ -54,6 +56,7 @@ const Footer = () => {
             href="https://www.flaticon.com/authors/smashingstocks"
             title="smashingstocks"
             className="text-dark"
+            target="_blank"
           >
             smashingstocks
           </a>{" "}
@@ -62,6 +65,7 @@ const Footer = () => {
             href="https://www.flaticon.com/"
             title="Flaticon"
             className="text-dark"
+            target="_blank"
           >
             www.flaticon.com
           </a>
