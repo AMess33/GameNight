@@ -37,8 +37,8 @@ const Profile = () => {
               ))}
           </div>
           <div className="col-10 gameList">
-            {data.gameNights.map((gameNight) => (
-              <GameNightList gamenights={gameNight} />
+            {data.gameNights.map((gameNight, index) => (
+              <GameNightList key={index} gamenights={gameNight} />
             ))}
           </div>
         </div>

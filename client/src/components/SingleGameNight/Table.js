@@ -42,12 +42,13 @@ const Table = ({ game }) => {
         <tbody>
           {tableData.map((row, rowIndex) => {
             return (
-              <>
-                <tr>
+            
+                <tr key={rowIndex}>
                   {row.map((_, colIndex) => {
                     return (
-                      <td>
+                      <td key={`${colIndex}-${rowIndex}`}>
                         <input
+                          key={`${rowIndex}-${colIndex}`}
                           type="text"
                           style={{ width: "100%", margin: 0, padding: 0 }}
                           onChange={(e) => {
@@ -59,7 +60,7 @@ const Table = ({ game }) => {
                     );
                   })}
                 </tr>
-              </>
+            
             );
           })}
         </tbody>
