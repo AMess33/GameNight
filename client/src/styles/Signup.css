@@ -1,0 +1,14 @@
+.submitNewAccount {
+  background-color: rgb(27, 27, 27);
+}
+
+.newAccountFormContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.newAccountForm {
+  width: 50%;
+  padding: 30px;
+}
