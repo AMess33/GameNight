@@ -15,51 +15,57 @@ const Profile = () => {
   const createGameNight = (event) => {
     setModalState("gameNightForm");
   };
-  const { username: userParam } = useParams();
 
   const { loading, data } = useQuery(QUERY_GAME_NIGHTS);
+  console.log("Auth.getProfile().data", Auth.getProfile().data);
+  // const user = data?.me || data?.user || {};
 
-  const user = data?.me || data?.user || {};
-
-  if (Auth.loggedIn() /*&& Auth.getProfile().data.username === userParam*/) {
-    return <Navigate to="/me" />;
-  }
-
+  // if (Auth.loggedIn() /*&& Auth.getProfile().data.username === userParam*/) {
+  //   return <Navigate to="/me" />;
+  // }
+  const user = Auth.getProfile().data || {};
   if (loading) {
     return <div>Loading...</div>;
   }
 
-  if (!user?.username) {
-    return (
-      <h4>
-        Please return to the login page and sign in or create an account at the
-        signup page
-      </h4>
-    );
+  // if (!user?.username) {
+  //   return (
+  //     <h4>
+  //       Please return to the login page and sign in or create an account at the
+  //       signup page
+  //     </h4>
+  //   );
+  // }
+  const gameNights = data || [];
+  if (gameNights) {
+    console.log("data from useQuery(QUERY_GAME_NIGHTS)", data);
   }
-
   return (
     <div>
-      <div className="flex-row justify-center mb-3">
-        <h2 className="col-12 col-md-10 bg-dark text-light p-3 mb-5">
-          Viewing {userParam ? `${user.username}'s` : "your"} Game Nights!
-        </h2>
-        <button
-          type="button"
-          className="btn btn-light text-dark"
-          onClick={createGameNight}
-        >
-          Create a new Game Night!
-        </button>
-        <div className="col-10 mb-3">
-          <GameNightList gameNights={user.gameNights} />
-        </div>
-        <div>
-          {modalState === "gameNightForm" && (
-            <GameNightForm close={() => setModalState("")} />
-          )}
-        </div>
-      </div>
+      { data && (
+          <div className="flex-row justify-center mb-3">
+            <h2 className="col-12 col-md-10 bg-dark text-light p-3 mb-5">
+              Viewing {user ? user.username : "Hello"}
+            </h2>
+            <button
+              type="button"
+              className="btn btn-light text-dark"
+              onClick={createGameNight}
+            >
+              Create a new Game Night!
+            </button>
+            <div className="col-10 mb-3">
+              {data.gameNights.map((gameNight) => (
+                <GameNightList gamenights={gameNight} />
+              ))}
+            </div>
+            <div>
+              {modalState === "gameNightForm" && (
+                <GameNightForm close={() => setModalState("")} />
+              )}
+            </div>
+          </div>
+      )}
     </div>
   );
 };
