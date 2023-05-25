@@ -24,10 +24,16 @@ const resolvers = {
   Query: {
     gameNights: async (parent, args, context) => {
       if (context.user) {
+        console.log("context.user._id", context.user._id);
         const gameNights = await GameNight.find(
           { userId: context.user._id }
         );
-      
+        console.log("gameNights", gameNights);
+        for (const gameNight of gameNights) {
+          console.log(gameNight.userId)
+          console.log(context.user._id);
+          console.log(gameNight.userId === context.user._id)
+        }
         return gameNights;
       }
       throw new AuthenticationError("You must be logged in!")
