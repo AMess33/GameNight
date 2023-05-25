@@ -4,38 +4,20 @@ import { Navigate, useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import GameNightList from "../components/GameNightList";
 import GameNightForm from "../components/gameNightForm";
-
+import GameNight from "./GameNight";
 import { QUERY_GAME_NIGHTS } from "../utils/queries";
 
 import Auth from "../utils/auth";
 
 const Profile = () => {
-  const [modalState, setModalState] = useState("");
-
-  const createGameNight = (event) => {
-    setModalState("gameNightForm");
-  };
-
   const { loading, data } = useQuery(QUERY_GAME_NIGHTS);
   console.log("Auth.getProfile().data", Auth.getProfile().data);
-  // const user = data?.me || data?.user || {};
 
-  // if (Auth.loggedIn() /*&& Auth.getProfile().data.username === userParam*/) {
-  //   return <Navigate to="/me" />;
-  // }
   const user = Auth.getProfile().data || {};
   if (loading) {
     return <div>Loading...</div>;
   }
 
-  // if (!user?.username) {
-  //   return (
-  //     <h4>
-  //       Please return to the login page and sign in or create an account at the
-  //       signup page
-  //     </h4>
-  //   );
-  // }
   const gameNights = data || [];
   if (gameNights) {
     console.log("data from useQuery(QUERY_GAME_NIGHTS)", data);
