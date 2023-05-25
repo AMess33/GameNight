@@ -40,9 +40,9 @@ const Signup = () => {
   };
 
   return (
-    <div>
+    <div className="newAccountFormContainer">
       <form
-        className="bg-white m-4 p-2 border border-dark rounded text-dark"
+        className="bg-white m-4 border border-dark rounded text-dark newAccountForm"
         onSubmit={handleFormSubmit}
       >
         <Stack
