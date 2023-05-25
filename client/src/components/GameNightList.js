@@ -1,7 +1,6 @@
 const GameNightList = ({ gamenights }) => {
-  if (gamenights) {
-    return (
-      <div className="card">
+  return (
+      <div className="card game">
         <div className="card-body">
           <h3 className="card-title">{gamenights.title}</h3>
           <p className="card-text">{gamenights.description}</p>
@@ -11,9 +10,6 @@ const GameNightList = ({ gamenights }) => {
           </a>
         </div>
       </div>
-    );
-  } else {
-    return (<h1>Loading...</h1>);
-  }
+  );  
 };
 export default GameNightList;

@@ -40,33 +40,33 @@ const Profile = () => {
   if (gameNights) {
     console.log("data from useQuery(QUERY_GAME_NIGHTS)", data);
   }
-  if (data) {
-    return (
-      <div>
-        <div className="flex-row justify-center mb-3">
-          <h2 className="col-12 col-md-10 bg-dark text-light p-3 mb-5">
-            Viewing {user ? user.username : "Hello"}
-          </h2>
-          <button
-            type="button"
-            className="btn btn-light text-dark"
-            onClick={createGameNight}
-          >
-            Create a new Game Night!
-          </button>
-          <div className="col-10 mb-3">
-            <GameNightList gameNights={gameNights} />
+  return (
+    <div>
+      { data && (
+          <div className="flex-row justify-center mb-3">
+            <h2 className="col-12 col-md-10 bg-dark text-light p-3 mb-5">
+              Viewing {user ? user.username : "Hello"}
+            </h2>
+            <button
+              type="button"
+              className="btn btn-light text-dark"
+              onClick={createGameNight}
+            >
+              Create a new Game Night!
+            </button>
+            <div className="col-10 mb-3">
+              {data.gameNights.map((gameNight) => (
+                <GameNightList gamenights={gameNight} />
+              ))}
+            </div>
+            <div>
+              {modalState === "gameNightForm" && (
+                <GameNightForm close={() => setModalState("")} />
+              )}
+            </div>
           </div>
-          <div>
-            {modalState === "gameNightForm" && (
-              <GameNightForm close={() => setModalState("")} />
-            )}
-          </div>
-        </div>
-      </div>
-    );
-  } else {
-    return ('Loading...')
-  }
+      )}
+    </div>
+  );
 };
 export default Profile;
