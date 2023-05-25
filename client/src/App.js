@@ -59,10 +59,7 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/me" element={<Profile />} />
-              <Route path="/profiles/:username" element={<Profile />} />
               <Route path="/gamenight/:gameNightId" element={<GameNight />} />
-              {/* just for testing game, remove for final product */}
-              <Route path="/gameNight" element={<GameNight />} />
             </Routes>
           </div>
           <Footer />
