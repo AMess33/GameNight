@@ -15,7 +15,7 @@ const Home = (props) => {
         <p className="lastParagraph">
           Create a game night, fill it with games, track scores, and more!
         </p>
-        <Link className="getStartedBtn" to="/login">
+        <Link className="getStartedBtn" to={Auth.loggedIn() ? "/me" : "/login"}>
           Get Started
         </Link>
       </div>
