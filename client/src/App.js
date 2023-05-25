@@ -22,6 +22,7 @@ import "./styles/Home.css";
 import "./styles/Footer.css";
 import "./styles/GameNight.css";
 import "./styles/Login.css";
+import "./styles/Profile.css";
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -58,10 +59,7 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/me" element={<Profile />} />
-              <Route path="/profiles/:username" element={<Profile />} />
-              {/* <Route path="/gamenight/:gamenightId" element={<GameNight />} /> */}
-              {/* just for testing game, remove for final product */}
-              <Route path="/gameNight" element={<GameNight />} />
+              <Route path="/gamenight/:gameNightId" element={<GameNight />} />
             </Routes>
           </div>
           <Footer />

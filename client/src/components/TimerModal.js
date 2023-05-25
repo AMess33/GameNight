@@ -39,7 +39,7 @@ const CountdownTimer = (props) => {
   }, [duration]);
 
   return (
-    <Modal open onClose={props.close}>
+    <Modal style={{ overflow: "scroll" }} open onClose={props.close}>
       <Box className="bg-dark w-75 container border border-white rounded">
         <button type="button" className="close" onClick={props.close}>
           <span>&times;</span>

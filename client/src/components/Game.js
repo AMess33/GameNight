@@ -11,8 +11,7 @@ function Game({ game }) {
   return (
     <Container>
       <div className="game">
-        <h2 className="gameTitle margins">{game.title}</h2>
-        <Table />
+        <h2 className="gameTitle margins">{game.name}</h2>
         <textarea className="gameNotes">{game.notes}</textarea>
       </div>
     </Container>

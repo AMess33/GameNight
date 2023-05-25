@@ -30,6 +30,12 @@ export const ADD_GAME_NIGHT = gql`
       _id
       title
       description
+      userId
+      games {
+        _id
+        name
+        notes
+      }
     }
   }
 `;
