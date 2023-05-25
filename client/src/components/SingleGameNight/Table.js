@@ -16,7 +16,6 @@ const Table = ({ game }) => {
   });
 
   const handleSaveTable = (e) => {
-    console.log(tableData)
     const t = {};
     t["rows"] = tableData;
     try {
