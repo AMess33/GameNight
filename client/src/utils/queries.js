@@ -2,13 +2,16 @@ import { gql } from '@apollo/client';
 
 export const QUERY_GAME_NIGHTS = gql`
   query gameNights {
-    _id
-    title
-    description
-    games {
+    gameNights {
       _id
-      name
-      notes
+      title
+      description
+      userId
+      games {
+        _id
+        name
+        notes
+      }
     }
   }
 `;
