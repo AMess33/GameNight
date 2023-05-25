@@ -7,15 +7,27 @@ const Footer = () => {
         <div>
           <div>
             <i className="bi bi-c-circle"></i> 2023{" "}
-            <a href="https://github.com/AMess33">
+            <a
+              href="https://github.com/AMess33"
+              target="_blank"
+              className="text-dark"
+            >
               <i className="bi bi-github"></i>
             </a>
             Andrew Messer,{" "}
-            <a href="https://github.com/jboyce313">
+            <a
+              href="https://github.com/jboyce313"
+              target="_blank"
+              className="text-dark"
+            >
               <i className="bi bi-github"></i>
             </a>
             Jacob Boyce, and{" "}
-            <a href="https://github.com/kitrath">
+            <a
+              href="https://github.com/kitrath"
+              target="_blank"
+              className="text-dark"
+            >
               <i className="bi bi-github"></i>
             </a>
             Chris Rathmel
@@ -25,22 +37,32 @@ const Footer = () => {
           <a
             href="https://www.flaticon.com/authors/creativecons"
             title="CreativeCons"
+            className="text-dark"
           >
             CreativeCons
           </a>
           {", "}
-          <a href="https://www.flaticon.com/authors/noomtah" title="noomtah">
+          <a
+            href="https://www.flaticon.com/authors/noomtah"
+            title="noomtah"
+            className="text-dark"
+          >
             noomtah
           </a>
           {", and "}
           <a
             href="https://www.flaticon.com/authors/smashingstocks"
             title="smashingstocks"
+            className="text-dark"
           >
             smashingstocks
           </a>{" "}
           from{" "}
-          <a href="https://www.flaticon.com/" title="Flaticon">
+          <a
+            href="https://www.flaticon.com/"
+            title="Flaticon"
+            className="text-dark"
+          >
             www.flaticon.com
           </a>
         </div>
