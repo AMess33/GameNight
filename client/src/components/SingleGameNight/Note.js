@@ -1,16 +1,38 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 
-// import { ADD_NOTE, UPDATE_NOTE, REMOVE_NOTE } from '../../utils/mutations';
+import { useMutation } from '@apollo/client';
+import { UPDATE_NOTE } from '../../utils/mutations';
 
 const Note = ({ game }) => {
-  // useEffect (unmount) to save note data if game.note.trim
-  // If no note, display an "ADD Note Button"
 
-  const [note, setNote] = useState(game.notes);
+  const gameNote = game.notes || "";
 
-  const updateNote = (e) => {
+  const original = useRef(gameNote.trim());
+  const [note, setNote] = useState(gameNote);
+
+  const [updateNote] = useMutation(UPDATE_NOTE);
+
+  const saveNote = (e) => {
+    const text = note.trim();
+    if (text !== original.current) {
+      try {
+        updateNote({
+          variables: {
+            gameId: game._id,
+            notes: text
+          }
+        });
+      } catch (err) {
+        console.error(err);
+      }
+      original.current = text;
+    }  
+    return;
+  }
+
+  const handleChange = (e) => {
     setNote(e.target.value);
   }
 
@@ -20,7 +42,8 @@ const Note = ({ game }) => {
       <Form.Control 
         as="textarea" 
         rows={3} 
-        onChange={updateNote}
+        onChange={handleChange}
+        onBlur={saveNote}
         defaultValue={note}
       />
     </Form.Group>

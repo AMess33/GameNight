@@ -141,7 +141,7 @@ export const ADD_NOTE = gql`
 
 export const UPDATE_NOTE = gql`
   mutation updateNote($gameId: ID!, $notes: String!) {
-    addNote(gameId: $gameId, notes: $notes) {
+    updateNote(gameId: $gameId, notes: $notes) {
       _id
       title
       description

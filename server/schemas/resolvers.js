@@ -11,7 +11,7 @@ const mutateGameSubObject = async (type, gameId, value) => {
     { $set: { [setKey]: value} },
     { arrayFilters: [ { "element._id": new ObjectId(gameId) } ], new: true }
   ); 
-    
+
   if (!gameNight) {
     throw new Error("No game exists with that id");
   }
@@ -76,7 +76,6 @@ const resolvers = {
     addGameNight: async (parent, { title, description }, context) => {
       if (context.user) {
         const userId = context.user._id;
-        console.log("userId in addGameNight", userId)
         const gameNight = await GameNight.create({
           title,
           description,

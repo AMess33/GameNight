@@ -26,8 +26,8 @@ const Profile = () => {
     <div>
       {data && (
         <div className="flex-row justify-center mb-3">
-          <h2 className="col-12 bg-dark text-light border border-light rounded p-3 m-2">
-            Viewing {user ? user.username : "Hello"}'s game nights
+          <h2 className="col-12 bg-dark text-light border border-light rounded p-3 welcomeMessage">
+            Viewing {user ? user.username : "Hello"}'s Game Nights
           </h2>
           <div className="gamesList">
             <GameNightForm userId={data.user && data.user._id} />
@@ -36,9 +36,9 @@ const Profile = () => {
                 <GameNight key={gameNights._id} gameNights={gameNights} />
               ))}
           </div>
-          <div className="col-10 mb-3">
-            {data.gameNights.map((gameNight) => (
-              <GameNightList gamenights={gameNight} />
+          <div className="col-10 gameList">
+            {data.gameNights.map((gameNight, index) => (
+              <GameNightList key={index} gamenights={gameNight} />
             ))}
           </div>
         </div>

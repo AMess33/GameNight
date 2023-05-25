@@ -42,8 +42,6 @@ const AddGameForm = ({ gameNightId }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Clear input
-    setName('');
     // Prevent double-clicks
     refButton.current.setAttribute('disabled', true);
     // re-enable after 3 seconds
