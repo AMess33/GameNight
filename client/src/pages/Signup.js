@@ -84,10 +84,10 @@ const Signup = () => {
           />
 
           <Button
-            className="submitNewAccount"
             type="submit"
             size="small"
             variant="contained"
+            color="primary"
           >
             Submit
           </Button>
