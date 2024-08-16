@@ -26,7 +26,7 @@ import "./styles/Profile.css";
 import "./styles/Signup.css";
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
-  uri: "/graphql",
+  uri: (process.env.SERVER_URI || "http://localhost:3001")+"/graphql"
 });
 
 // Construct request middleware that will attach the JWT token to every request as an `authorization` header
